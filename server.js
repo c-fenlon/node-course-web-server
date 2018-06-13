@@ -21,9 +21,9 @@ app.use((req, res, next) => {
     next(); // needed to tell system it can move on to next middleware
 });
 
-app.use((req, res, next) => {
-    res.render('maintenance.hbs')
-});
+// app.use((req, res, next) => {
+//     res.render('maintenance.hbs')
+// });
 
 // order matters - doesn't work if before the app.set line above
 hbs.registerHelper('getCurrentYear', () => {
@@ -54,6 +54,12 @@ app.get('/about', (req, res) => {
     res.render('about.hbs', {
         pageTitle: 'About Page'
     });
+});
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects Page'
+    })
 });
 
 app.get('/bad', (req, res) => {
